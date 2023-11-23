@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Печать</title>
+    <style>
+        body {
+            font: 11pt Arial, "Times New Roman", Times, serif;
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        @page {
+            margin: 1cm 2cm;
+        }
+
+        @page :left {
+            margin: 0.5cm;
+        }
+
+        @page :right {
+            margin: 0.8cm;
+        }
+
+        h1 {
+            font-size: 24pt;
+        }
+
+        h2 {
+            font-size: 14pt;
+            margin-top: 25px;
+        }
+
+        aside h2 {
+            font-size: 18pt;
+        }
+
+        header h1, header nav, footer, img {
+            display: none;
+        }
+
+        table, th, td {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+
+        th {
+            text-align: center;
+            padding: 10px;
+        }
+
+        td {
+            text-align: left;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<h3>{{contract}}</h3>
+<h3>За период с {{from}} по {{to}}</h3>
+<h3>Найдено {{itemsCount}} платежей на общую сумму: {{total}} руб</h3>
+
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+<table style="width: 100%;">
+    <thead>
+    <tr>
+        <th>№</th>
+        <th>Услуга</th>
+        <th>Адрес</th>
+        <th>Лицевой счет</th>
+        <th>Оплачено</th>
+        <th>Время</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {{items}}
+    </tbody>
+</table>
+
+
+</body>
+</html>
