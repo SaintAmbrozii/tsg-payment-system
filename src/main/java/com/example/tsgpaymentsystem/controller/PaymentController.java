@@ -4,6 +4,7 @@ import com.example.tsgpaymentsystem.domain.User;
 import com.example.tsgpaymentsystem.dto.PaymentPage;
 import com.example.tsgpaymentsystem.dto.seacrhcriteria.PaymentSearchCriteria;
 import com.example.tsgpaymentsystem.service.PaymentService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("api/payments/")
+@SecurityRequirement(name = "JWT")
 public class PaymentController {
 
     private final PaymentService paymentService;
@@ -50,7 +52,7 @@ public class PaymentController {
         return paymentService.createExportCSVFile(user, searchCriteria);
     }
 
-    @PostMapping(value = "/export/xls", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE) //application/vnd.ms-excel
+    @PostMapping(value = "/export/xls", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     public @ResponseBody
     byte[] exportXls(@AuthenticationPrincipal User user, @RequestBody PaymentSearchCriteria searchCriteria) throws Exception {
         log.debug(">>> exportXls payments {}", searchCriteria);

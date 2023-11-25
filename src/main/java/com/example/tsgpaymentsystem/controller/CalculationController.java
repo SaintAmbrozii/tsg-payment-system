@@ -5,6 +5,7 @@ import com.example.tsgpaymentsystem.dto.CalculationDto;
 import com.example.tsgpaymentsystem.dto.seacrhcriteria.CalculationSearchCriteria;
 import com.example.tsgpaymentsystem.service.CalculationService;
 import com.example.tsgpaymentsystem.service.UploadService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
@@ -16,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/api/calculations/")
 @CrossOrigin(maxAge = 3600)
 @Slf4j
+@SecurityRequirement(name = "JWT")
 public class CalculationController {
 
     private final CalculationService calculationService;

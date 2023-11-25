@@ -1,6 +1,8 @@
 package com.example.tsgpaymentsystem.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -23,12 +25,25 @@ public class PayAgent implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+    @NotNull(message = "не должен быть пустым")
+    @Size(min = 2, max = 100, message = "Не может быть больше 100")
     private String username;
+
+    @NotNull(message = "не должен быть пустым")
+    @Size(min = 6, max = 100, message = "Не может быть больше 20")
     @Column(unique = true,length = 20)
     private String phone;
+
+    @NotNull(message = "не должен быть пустым")
+    @Size(min = 6, max = 100, message = "Не может быть больше 100")
     @Column(unique = true)
     private String email;
+
+    @NotNull(message = "не должен быть пустым")
+    @Size(min = 6, max = 100, message = "Не может быть больше 100")
     private String password;
+
     private boolean active = true;
 
     @Override

@@ -69,7 +69,7 @@ public class DateUtils {
 
         DateRange dateRange = new DateRange();
 
-        //"2020-01-02T17:00:00.000Z"
+        //"2023-11-11T14:00:00.000Z"
         dateRange.setFrom(DateUtils.parseZ(range[0]));
 
         if (range.length > 1)

@@ -7,11 +7,13 @@ import com.example.tsgpaymentsystem.dto.SettingsDto;
 import com.example.tsgpaymentsystem.dto.UserDTO;
 import com.example.tsgpaymentsystem.service.InfoService;
 import com.example.tsgpaymentsystem.service.UserService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/settings/")
+@SecurityRequirement(name = "JWT")
 public class SettingsController {
 
     private final InfoService infoService;

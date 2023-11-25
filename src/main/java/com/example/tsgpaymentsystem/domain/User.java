@@ -1,6 +1,8 @@
 package com.example.tsgpaymentsystem.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,22 +37,40 @@ public class User implements UserDetails, Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "не должен быть пустым")
+    @Size(min = 2, max = 100, message = "Не может быть больше 100")
     @Column(name = "name")
     private String name;
 
+    @NotNull(message = "не должен быть пустым")
+    @Size(min = 2, max = 100, message = "Не может быть больше 100")
     @Column(name = "lastname")
     private String lastname;
 
 
+    @NotNull(message = "не должен быть пустым")
+    @Size(min = 5, max = 100, message = "Не может быть больше 100")
     @Column(name = "email",unique = true)
     private String email;
 
+    @NotNull(message = "не должен быть пустым")
+    @Size(min = 6, max = 100, message = "Не может быть больше 100")
     @Column(name = "password")
     private String password;
+
+
+    @NotNull(message = "не должен быть пустым")
+    @Size(min = 3, max = 100, message = "Не может быть больше 100")
     @Column(name = "address")
     private String address;
+
+    @NotNull(message = "не должен быть пустым")
+    @Size(min = 3, max = 100, message = "Не может быть больше 100")
     @Column(name = "contract")
     private String contract;
+
+    @NotNull(message = "не должен быть пустым")
+    @Size(min = 6, max = 100, message = "Не может быть больше 20")
     @Column(unique = true,  length = 20)
     private String phone;
 
